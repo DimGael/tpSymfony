@@ -1,0 +1,32 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des Plats{% endblock %}
+
+{% block body %}
+
+    <article>
+        {% if dishes|length == 0 %}
+            <p>Aucun plat n'a été trouvé.</p>
+        {% else %}
+            <ul>
+            {% for dish in dishes %}
+                <li>
+                    <div>
+                        <a href="{{ path('admin_dish_show', {'id': dish.id}) }}">{{ dish.name }}</a> <strong>{{ dish.category.name }}</strong>  {{ dish.description|truncate(30) }}
+                    </div>
+                    <div>
+                        Actions : <a href="{{ path('admin_dish_edit', {'id':dish.id}) }}">Modifier</a> |
+                        <a href="{{ path('admin_dish_delete', {'id':dish.id}) }}">Supprimer</a>
+                    </div>
+                    <br>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+        <a role="button" class="btn btn-primary" href="{{ path('admin_dish_new') }}">Create new</a>
+
+
+    </article>
+
+{% endblock %}

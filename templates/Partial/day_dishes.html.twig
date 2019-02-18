@@ -1,0 +1,9 @@
+{% if dishes|length == 0 %}
+{% else %}
+    <h3>Voici les plats du jour : </h3>
+    <ul>
+    {% for dish in dishes %}
+        <li>{{ dish.name }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}

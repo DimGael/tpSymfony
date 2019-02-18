@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/web/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="/web/js/script.js"></script>
+    <title>{% block title %}Mon Site de Plat{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        {% include "Partial/header.html.twig" with {header_title: block('header_title')} %}
+    </header>
+
+    {% block body %}
+    <section>
+        <h2>Voici le corps de la page</h2>
+        <p>
+            Bienvenue sur le Mon Site de Plat. (:
+        </p>
+    </section>
+    {% endblock %}
+
+    <footer>{% include "Partial/footer.html.twig" %}</footer>
+</body>
+</html>

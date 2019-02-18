@@ -1,0 +1,47 @@
+{% extends "Layout/layout.html.twig" %}
+
+{% block title %}
+    {{ category.name }}
+{% endblock %}
+
+{% block header_title %}<h1>{{ category.name }}</h1>{% endblock %}
+
+{% block body %}
+
+    {% if dishes|length == 0 %}
+        <h2>Aucun plat</h2>
+        <p>Aucun plat n'est disponible pour les plat de catégorie {{ category.name }}</p>
+    {% else %}
+        <h2>Les plats associés :</h2>
+        <ul>
+        {% for dish in dishes %}
+            <li>
+                <div>
+                    <h4>{{ dish.name }}</h4>
+                    <p>{{ dish.description }}</p>
+                    <span>image : {{ dish.image }}</span>
+                </div>
+                <div>
+                    <strong>Prix :</strong> {{ dish.price }}€
+                </div>
+                <div>
+                    <strong>Calories :</strong> {{ dish.calories }}
+                </div>
+                {% if dish.allergens|length != 0 %}
+                <div>
+                    <strong>Allergènes : </strong>
+                    <ul>
+                        {% for allergen in dish.allergens %}
+                            <li>{{ allergen.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+
+    {% endif %}
+
+
+{% endblock %}

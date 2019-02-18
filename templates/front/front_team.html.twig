@@ -1,0 +1,26 @@
+{% extends "Layout/layout.html.twig" %}
+
+{% block title %}
+    Front Team
+{% endblock %}
+
+{% block header_title %}<h1>L'équipe FRONT</h1>{% endblock %}
+
+{% block body %}
+    <h2>Voici l'équipe FRONT</h2>
+
+    {% for members in list_team %}
+        {% if loop.index == 1 %}
+            <ul>
+        {% endif %}
+
+            <li><strong>{{ members.username }}</strong> : {{ members.firstname }} {{ members.lastname }} travaille en tant que "{{ members.jobtitle }}"</li>
+
+        {% if loop.index == loop.last %}
+            </ul>
+        {% endif %}
+
+    {% else %}
+        <p>Personne n'est dans la team :'(</p>
+    {% endfor %}
+{% endblock %}

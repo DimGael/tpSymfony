@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>{% block title %}BackOffice{% endblock %}</title>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="btn-group btn-group-justified">
+            <a role="button" class="btn btn-primary" href="{{ path('admin_user_list') }}">Users</a>
+            <a role="button" class="btn btn-primary" href="{{ path('admin_dish_list') }}">Plats</a>
+            <a role="button" class="btn btn-primary" href="{{ path('category_index') }}">Categories</a>
+            <a role="button" class="btn btn-primary" href="{{ path('allergen_index') }}">Allergènes</a>
+            <a role="button" class="btn btn-primary" href="{{ path('commande_index') }}">Commandes</a>
+        </div>
+    </nav>
+
+
+    <div>
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+
+                <div class="alert alert-{{ label }}" role="alert">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    {% if block("title") %}
+        <h1>{{ block("title") }}</h1>
+    {% endif %}
+</header>
+
+{% block body %}
+    <p>Bienvenue dans votre backoffice !</p>
+{% endblock %}
+
+<footer>
+    {% block footer %}{% endblock %}
+</footer>
+</body>
+</html>

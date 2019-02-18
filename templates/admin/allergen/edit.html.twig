@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edit Allergen{% endblock %}
+
+{% block body %}
+
+    {{ include('admin/allergen/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a role="button" class="btn btn-primary" href="{{ path('allergen_index') }}">back to list</a>
+
+    {{ include('admin/allergen/_delete_form.html.twig') }}
+{% endblock %}

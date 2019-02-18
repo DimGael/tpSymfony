@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Admin Users - {% block title %}Accueil{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a role="button" class="btn btn-primary" href="{{ path("admin_user_list") }}">Menu</a></li>
+                <li><a role="button" class="btn btn-save" href="{{ path('admin_user_new') }}">Nouveau</a> </li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <footer>
+    {% block footer %}{% endblock %}
+    </footer>
+</body>
+</html>
+
+
+
+{#
+Propriétés de User :
+
+username
+firstName
+lastName
+jobtitle
+enabled
+createdAt
+updatedAt
+dishes
+#}

@@ -1,0 +1,50 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+    <main>
+
+        {% if users|length == 0 %}
+            <p>
+                Il n'y pas d'utilisateurs enregistrés.
+            </p>
+        {% else %}
+            <table class="table">
+                <tr>
+                    <th>username</th>
+                    <th>first Name</th>
+                    <th>last Name</th>
+                    <th>jobTitle</th>
+                    <th>Dernière modif.</th>
+                    <th>Créé le</th>
+                    <th>Actions</th>
+                </tr>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.firstName }}</td>
+                        <td>{{ user.lastName }}</td>
+                        <td>{{ user.jobtitle }}</td>
+                        <td>
+                            {% if user.updatedAt %}
+                                {{ user.updatedAt|date("d/m/Y") }}
+                            {% else %}
+                                N'a pas eu de modif
+                            {% endif %}
+                        </td>
+                        <td>{{ user.createdAt|date("d/m/Y") }}</td>
+
+                        {# ACTIONS #}
+                        <td>
+                            <a role="button" class="btn btn-primary" href="{{ path("admin_user_show", {id : user.id}) }}">Voir</a>
+                            <a role="button" class="btn btn-danger" href="{{ path("admin_user_delete", {id : user.id}) }}">Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+        <a role="button" class="btn btn-primary" href="{{ path('admin_user_new') }}">Create new</a>
+    </main>
+{% endblock %}

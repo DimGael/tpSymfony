@@ -1,0 +1,10 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}New Commande{% endblock %}
+
+{% block body %}
+
+    {{ include('admin/commande/_form.html.twig') }}
+
+    <a role="button" class="btn btn-primary" href="{{ path('commande_index') }}">back to list</a>
+{% endblock %}

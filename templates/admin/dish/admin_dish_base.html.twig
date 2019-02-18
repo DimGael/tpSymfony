@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Admin Plats - {% block title %}Accueil{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ path("admin_dish_list") }}">Menu</a></li>
+                <li><a href="{{ path('admin_dish_new') }}">Nouveau</a> </li>
+            </ul>
+
+        </nav>
+
+        {% if block("title") %}
+        <h1>{{ block("title") }}</h1>
+        {% endif %}
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <footer>
+    {% block footer %}{% endblock %}
+    </footer>
+</body>
+</html>

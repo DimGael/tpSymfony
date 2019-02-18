@@ -1,0 +1,51 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+{#
+Propriétés de User :
+
+username
+firstName
+lastName
+jobtitle
+enabled
+createdAt
+updatedAt
+dishes
+#}
+    <main>
+
+        <div>
+            <h4>Infos persos</h4>
+            Prénom : {{ user.firstname }} <br>
+            Nom : {{ user.lastname }} <br>
+            Métier : {{ user.jobtitle }}
+        </div>
+
+        <div>
+            <h4>Détails Techniques</h4>
+            Actif : {{ user.enabled ? "Oui" : "Non" }}<br>
+            Créé le : {{ user.createdAt|date("d/m/Y") }}<br>
+            Modifié le :
+            {% if user.updatedAt %}
+                {{ user.updatedAt|date("d/m/Y") }}
+            {% else %}
+                Cet utilisateur n'a pas eu de modifications
+            {% endif %}
+            <br>
+        </div>
+
+        <div>
+            <h4>Actions</h4>
+            <ul>
+                <li><a href="{{ path("admin_user_edit", {id : user.id}) }}">Modifier</a></li>
+                <li><a href="{{ path("admin_user_delete", {id : user.id}) }}">Supprimer</a></li>
+            </ul>
+        </div>
+    </main>
+{% endblock %}
+
+{% block title %}
+    Détails de {{ user.username }}
+{% endblock %}
+

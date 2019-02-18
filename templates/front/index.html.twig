@@ -1,0 +1,16 @@
+{% extends "Layout/layout.html.twig" %}
+
+{% block title %}
+    Front Home
+{% endblock %}
+
+{% block header_title %}
+    <h1>Accueil de Mon site de plat</h1>
+{% endblock %}
+
+{% block body %}
+    <h1> Bienvenue !</h1>
+    <p>Vous êtes sur le site de Front Home !</p>
+
+    {{ render(controller('App\\Controller\\BlockController:dayDishes', {max : 5})) }}
+{% endblock %}

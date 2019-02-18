@@ -1,0 +1,63 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+<article>
+    <ul>
+        <li>
+            <strong>Description</strong> : {{ dish.description }}
+        </li>
+
+        <li>
+            <strong>Détails : </strong>
+            <ul>
+                <li>Calories : {{ dish.calories }}</li>
+                <li>Prix : {{ dish.price }}</li>
+                <li>Image : <img src="{{ dish.image }}"/></li>
+            </ul>
+        </li>
+
+        <li>
+            <strong>Allergènes : </strong>
+            {% if dish.allergens|length == 0 %}
+                Pas d'allergènes associé.
+            {% else %}
+            <ul>
+                {% for alergen in dish.allergens %}
+                    <li>{{ alergen.name }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+
+        <li>
+            <strong>Catégorie</strong> : {{ dish.category.name }}
+        </li>
+
+        <li>
+            <strong>Sticky</strong> :{% if dish.sticky %}Vrai{% else %}Faux{% endif %}
+        </li>
+
+        <li>
+            <strong>Utilisateur</strong> :
+            {% if dish.user %}
+                {{ dish.user.firstname }} {{ dish.user.lastname }}
+            {% else %}
+                Pas d'utilisateur associé
+            {% endif %}
+        </li>
+    </ul>
+
+    <div>
+        <h4>Actions :</h4>
+        <ul>
+            <li><a href="{{ path('admin_dish_edit', {"id": dish.id}) }}">Modifier</a> </li>
+            <li><a href="{{ path('admin_dish_delete', {"id": dish.id}) }}">Supprimer</a></li>
+        </ul>
+    </div>
+</article>
+{% endblock %}
+
+{% block title %}
+Détail {{ dish.name }}
+{% endblock %}
+

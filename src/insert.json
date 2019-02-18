@@ -1,0 +1,113 @@
+{
+  "dishes": [
+    {
+      "id": 1,
+      "category_id": 2,
+      "name": "Steak-Frites - modifié",
+      "calories": 10000,
+      "price": 5.50,
+      "image": "steak_frites.jpg",
+      "description": "Un bon steak frites sa mère comme on les aimes"
+    },
+
+    {
+      "id": 7,
+      "category_id": 2,
+      "name": "Fish and chips",
+      "calories": 50000,
+      "price": 5.50,
+      "image": "fishnchips.jpg",
+      "description": "Un plat qui parle anglais."
+    },
+
+    {
+      "id": 2,
+      "category_id": 1,
+      "name": "salade",
+      "calories": 0,
+      "price": 1,
+      "image": "salade.jpg",
+      "description": "Une petite salade pour commencer :)))))"
+    },
+
+    {
+      "id": 3,
+      "category_id": 3,
+      "name": "Cheesecake",
+      "calories": 20000,
+      "price": 3,
+      "image": "cheesecake.jpg",
+      "description": "3€ pour ce cheesecake ? faut sauter sur l'occasion mon pote, c'est le cheesecake du black friday gros inchala"
+    },
+
+    {
+      "id": 4,
+      "category_id": 1,
+      "name": "pain",
+      "calories": 500,
+      "price": 3,
+      "image": "pain.jpg",
+      "description": "Du bon pain de campagne :)"
+    },
+
+    {
+      "id": 5,
+      "category_id": 2,
+      "name": "Fondue Fromagère",
+      "calories": 20000000,
+      "price": 10,
+      "image": "fondue_fromagere.jpg",
+      "description": "Une fondue en hiver c'est le feu lol mdr"
+    },
+
+    {
+      "id": 6,
+      "category_id": 2,
+      "name": "Raclette",
+      "calories": 2000000,
+      "price": 15,
+      "image": "raclette.jpg",
+      "description": "On ne la presente plus"
+    }
+  ],
+
+  "allergens": [
+    {
+      "id": 1,
+      "name":"gluten",
+      "id_dishes": [
+        4
+      ]
+    },
+
+    {
+      "id": 2,
+      "name": "fromage",
+      "id_dishes": [
+        3,5,6
+      ]
+    },
+
+    {
+      "id": 3,
+      "name": "viande",
+      "id_dishes": [
+        1,7
+      ]
+    },
+
+    {
+      "id": 4,
+      "name": "legume",
+      "id_dishes": [
+        2
+      ]
+    },
+
+    {
+      "id": 5,
+      "name": "bb",
+      "id_dishes":[]
+    }
+  ]
+}

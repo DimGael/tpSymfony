@@ -1,0 +1,42 @@
+{% extends "Layout/layout.html.twig" %}
+
+{% block title %}
+    Carte du resto
+{% endblock %}
+
+{% block header_title %}<h1>Voici la carte du restaurant</h1>{% endblock %}
+
+{% block body %}
+
+    {% if categories|length == 0 %}
+        <p>Il n'y a pas de catégories dans ce restaurant, revenez plus tard !</p>
+    {% else %}
+        <ul>
+        {% for category in categories %}
+            <li>
+                <h3><a href="carte/{{ category.id }}">{{ category.name }}</a></h3>
+                <p>{{ category.dishes|length }} plats  Lien Image : <em>{{ category.image }}</em></p>
+
+                <h4>Liste des plats :</h4>
+                {% if category.dishes|length == 0 %}
+                    <p>{{ category.name }} n'a pas de plats associé.</p>
+                {% else %}
+                    <ul>
+                    {% for dish in category.dishes %}
+                        <li>
+                            <h5>{{ dish.name }}</h5>
+                            <p>
+                                Prix : {{ dish.price }}€ <br>
+                                Calories : {{ dish.calories }}
+                            </p>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

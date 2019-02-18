@@ -1,0 +1,16 @@
+{% block header_title %}
+    {%  if header_title is empty %}
+        <h1>Mon Site de Plat</h1>
+    {% else %}
+        {{ header_title|raw }}
+    {% endif %}
+{% endblock %}
+<nav>
+    <a role = "button" class="btn btn-primary" href="{{ path('admin_index') }}">Administration</a>
+    <ul>
+        <li><a href="{{ path("front_dishes_category", {'idCat':1}) }}">Entrée</a></li>
+        <li><a href="{{ path("front_dishes_category", {'idCat':2}) }}">Plats</a></li>
+        <li><a href="{{ path("front_dishes_category", {'idCat':3}) }}">Dessert</a></li>
+    </ul>
+
+</nav>
