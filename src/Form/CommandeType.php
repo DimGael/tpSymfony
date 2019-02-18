@@ -19,13 +19,22 @@ class CommandeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            /*
+             * Date gérée par CommandeSubscriber
             ->add('date', DateType::class, [
                 'label' => 'Date de la commande',
                 'required' => true,
             ])
+            */
+
+            /*
+             * Prix géré par CommandeSubscriber
             ->add('prixTotal', MoneyType::class, [
                 'required' => true
             ])
+            */
+            /*
+             * Statut géré par les Events
             ->add('status',ChoiceType::class, [
                 'required' => true,
                 'choices' => [
@@ -35,6 +44,7 @@ class CommandeType extends AbstractType
                     'Payée' => 'payee'
                 ]
             ])
+            */
             ->add('Utilisateur', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'username',

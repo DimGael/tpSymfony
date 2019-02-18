@@ -39,21 +39,12 @@ services:
         autowire: true
         public: true
 
-    App\EventListener\CommandePostPersistListener:
+    commande.subscriber.sh:
+        class: App\EventSubscriber\CommandeSubscriber
+        arguments :
+            - "@mailer"
         tags:
-            - { name: doctrine.event_listener, event: prePersist }
-
-    App\EventListener\CommandePostUpdateListener:
-        tags:
-            - { name: doctrine.event_listener, event: postUpdate }
-
-    App\EventListener\CommandeSubscriber:
-        tags:
-            - { name: doctrine.event_subscriber, connection: default }
-
-
-    App\EventListener\CommandePayeeListener:
-        calls:
-            - [ setRhService, ['restau_service.sh'] ]
-        tags:
-            - { name: doctrine.event_listener, event: order.payed }
+            - { name: doctrine.event_subscriber, event: prePersist }
+            - { name: doctrine.event_subscriber, event: postPersist }
+            - { name: doctrine.event_subscriber, event: postUpdate }
+            - { name: doctrine.event_subscriber, event: preUpdate }

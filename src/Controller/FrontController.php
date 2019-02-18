@@ -105,6 +105,6 @@ class FrontController extends Controller
      */
     public function mentionsLegales()
     {
-        return $this->render("Layout/front_legals.html.twig");
+        return $this->render("front/front_legals.html.twig");
     }
 }
