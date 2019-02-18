@@ -48,3 +48,11 @@ services:
             - { name: doctrine.event_subscriber, event: postPersist }
             - { name: doctrine.event_subscriber, event: postUpdate }
             - { name: doctrine.event_subscriber, event: preUpdate }
+
+    App\EventListener\PostPersistCommande:
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+
+    App\EventListener\OrderPayedListener:
+        tags:
+            - { name: doctrine.event_listener, event: order.payed }

@@ -49,8 +49,7 @@ class CommandeSubscriber implements EventSubscriber
 
     public function postPersist()
     {
-        dump('post persist');
-        die;
+
     }
 
     public function preUpdate(LifecycleEventArgs $args)
@@ -65,8 +64,7 @@ class CommandeSubscriber implements EventSubscriber
 
     public function postUpdate()
     {
-        dump('postUpdate');
-        die;
+
     }
 
     private function getPrixTotal(Commande $commande)

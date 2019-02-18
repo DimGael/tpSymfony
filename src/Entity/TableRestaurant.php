@@ -69,37 +69,6 @@ class TableRestaurant
     }
 
     /**
-     * @return Collection|Order[]
-     */
-    public function getOrders(): Collection
-    {
-        return $this->orders;
-    }
-
-    public function addOrder(Order $order): self
-    {
-        if (!$this->orders->contains($order)) {
-            $this->orders[] = $order;
-            $order->setTableRestaurant($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrder(Order $order): self
-    {
-        if ($this->orders->contains($order)) {
-            $this->orders->removeElement($order);
-            // set the owning side to null (unless already changed)
-            if ($order->getTableRestaurant() === $this) {
-                $order->setTableRestaurant(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Commande[]
      */
     public function getCommandes(): Collection
